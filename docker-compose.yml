@@ -69,6 +69,21 @@ services:
     depends_on:
       - elasticsearch
 
+  filebeat:
+    build:
+      context: filebeat/
+      args:
+        FILEBEAT_VERSION: $FILEBEAT_VERSION
+    volumes:
+      - type: bind
+        source: ./filebeat/config/filebeat.yml
+        target: /usr/share/filebeat/filebeat.yml
+        read_only: true
+    networks:
+      - elk
+    depends_on:
+      - elasticsearch
+
 networks:
   elk:
     driver: bridge
