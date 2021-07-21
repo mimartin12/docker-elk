@@ -74,6 +74,8 @@ services:
       context: filebeat/
       args:
         FILEBEAT_VERSION: $FILEBEAT_VERSION
+    environment:
+      - OKTA_API_KEY
     volumes:
       - type: bind
         source: ./filebeat/config/filebeat.yml
@@ -82,7 +84,6 @@ services:
       - type: bind
         source: ./filebeat/modules/okta.yml
         target: /usr/share/filebeat/modules.d/okta.yml
-        read_only: true
     networks:
       - elk
     depends_on:
