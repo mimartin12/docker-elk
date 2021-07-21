@@ -11,3 +11,6 @@ output.elasticsearch:
   hosts: 'http://elasticsearch:9200'
   username: 'elastic'
   password: 'changeme'
+
+setup.kibana:
+  host: 'http://kibana:5601'

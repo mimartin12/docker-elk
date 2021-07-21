@@ -79,6 +79,10 @@ services:
         source: ./filebeat/config/filebeat.yml
         target: /usr/share/filebeat/filebeat.yml
         read_only: true
+      - type: bind
+        source: ./filebeat/modules/okta.yml
+        target: /usr/share/filebeat/modules.d/okta.yml
+        read_only: true
     networks:
       - elk
     depends_on:
