@@ -8,9 +8,9 @@ processors:
   - add_docker_metadata: ~
 
 output.elasticsearch:
-  hosts: 'http://elasticsearch:9200'
-  username: 'elastic'
-  password: 'changeme'
+  hosts: [ "http://elasticsearch:9200" ]
+  username: elastic
+  password: changeme
 
 setup.kibana:
   host: 'http://kibana:5601'
