@@ -85,6 +85,7 @@ services:
         source: ./filebeat/modules/okta.yml
         target: /usr/share/filebeat/modules.d/okta.yml
         read_only: true
+    restart: always
     networks:
       - elk
     depends_on:
